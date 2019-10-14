@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import CountryList from '../../components/local/CountryList/CountryListStyled';
 import Banner from '../../components/global/Banner/BannerStyled';
@@ -106,5 +107,12 @@ const mapDispatchToProps = dispatch => ({
   filteredCountries: inputValue => dispatch(actions.filteredCountries(inputValue)),
   resetCountries: inputValue => dispatch(actions.resetCountries(inputValue))
 })
+
+Home.propTypes = {
+  pending: PropTypes.bool,
+  countries: PropTypes.array,
+  inputCountries: PropTypes.array,
+  error: PropTypes.number
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
